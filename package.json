@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@geist-ui/react": "^2.1.0-canary.2",
+    "airtable-plus": "^1.0.4",
     "next": "10.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1"
