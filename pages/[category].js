@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import { getCategories } from './api/get-categories'
-import { categoryNameToSlug } from '../lib/category'
+import { categoryNameToSlug, categorySlugToName } from '../lib/category'
 
 export default function Category({ categories }) {
   return (
@@ -10,9 +10,16 @@ export default function Category({ categories }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(ctx) {
+  const categoryName = categorySlugToName(ctx.params.category)
+  const categories = await getCategories()
+
+  categories.forEach(c => {
+    if (c.fields.name === categoryName) c.isSelected = true
+  })
+
   return {
-    props: { categories: await getCategories() },
+    props: { categories },
     revalidate: 1,
   }
 }

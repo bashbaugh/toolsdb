@@ -1,0 +1,43 @@
+
+
+.category-color-purple {
+  background: rgba(128, 0, 128, 0.815);
+}
+.category-text-purple {
+  color: purple;
+}
+
+.category-color-green {
+  background: rgba(52, 231, 20, 0.678);
+}
+.category-text-green {
+  color: rgb(51, 231, 20);
+}
+
+.category-color-lightBlue {
+  background: rgba(0, 251, 238, 0.767);
+}
+.category-text-lightBlue {
+  color: rgb(0, 251, 239);
+}
+
+.category-color-yellow {
+  background: rgba(255, 251, 0, 0.849);
+}
+.category-text-yellow {
+  color: rgb(255, 189, 46);
+}
+
+.category-color-orange {
+  background: rgba(255, 123, 0, 0.904);
+}
+.category-text-orange {
+  color: rgb(255, 123, 0);
+}
+
+.category-color-red {
+  background: rgba(243, 4, 4, 0.808);
+}
+.category-text-red {
+  color: rgb(243, 4, 4);
+}

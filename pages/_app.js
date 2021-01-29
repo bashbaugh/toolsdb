@@ -2,7 +2,8 @@ import { GeistProvider, CssBaseline } from '@geist-ui/react'
 import { ContextWrapper, useAppContext } from '../lib/context'
 import Router from 'next/router'
 import NProgress from 'nprogress'
-import '../public/nprogress.css'
+import '../styles/nprogress.css'
+import '../styles/colors.css'
 
 
 Router.events.on('routeChangeStart', () => NProgress.start())

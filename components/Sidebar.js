@@ -6,7 +6,6 @@ import { Moon, Sun, Github, ArrowRight } from '@geist-ui/react-icons'
 import Link from 'next/link'
 import { categoryNameToSlug } from '../lib/category'
 
-
 function Sidebar({ categories }) {
   const [ state, dispatch ] = useAppContext()
 
@@ -37,11 +36,13 @@ function Sidebar({ categories }) {
 
       { categories && <div className='categories'>
         { categories.map(category => (
-          <Link href={`/${categoryNameToSlug(category.fields.name)}`}>
-            <div className={`category`} key={category.id}>
-              <div className='sliding-background bg-color-${category.fields.color}' />
-              <span>{category.fields.name}</span>
-              <span className='arrow-icon'><ArrowRight /></span>
+          <Link href={`/${categoryNameToSlug(category.fields.name)}`} key={category.id}>
+            <div className={`category`} >
+              <div className={!category.isSelected && `sliding-background category-color-${category.fields.color}`} />
+              <div className={`inner ${category.isSelected && 'category-text-' + category.fields.color}`}>
+                <span>{category.fields.name}</span>
+                <span className='arrow-icon'><ArrowRight /></span>
+              </div>
             </div>
           </Link>
         )) }
@@ -50,6 +51,8 @@ function Sidebar({ categories }) {
       <style jsx>{`
         nav {
           position: fixed;
+          overflow-x: hidden;
+          overflow-y: auto;
           top: 0;
           height: 100%;
           padding: 15px 0;
@@ -73,14 +76,20 @@ function Sidebar({ categories }) {
         }
 
         .categories {
-          margin: 10px 0;
+          margin: 15px 0;
           //border-top: 1px solid gray;
           //border-bottom: 1px solid gray;
         }
 
         .category {
+          position: relative;
+          cursor: pointer;
+        }
+
+        .category .inner {
+          padding: 15px 5px;
           user-select: none;
-          padding: 10px 5px;
+          transition: .2s;
         }
 
         .category .arrow-icon {
@@ -88,14 +97,23 @@ function Sidebar({ categories }) {
           right: 2px;
         }
 
-
-
         .sliding-background {
-
+          position: absolute;
+          width: 0;
+          top: 0;
+          bottom: 0;
+          z-index: -100;
+          transition: .2s;
+          transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
         }
 
-        .bg-color- {
+        .category:hover .sliding-background {
+          width: 100%;
+          box-shadow: 0 5px 8px 0 ${state.theme === 'light' ? '#d3d3d3' : '#2c2c2c'};
+        }
 
+        .category:hover .inner {
+          transform: translateY(-1px);
         }
       `}</style>
     </nav>
