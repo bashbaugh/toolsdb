@@ -2,9 +2,9 @@ import React, { memo } from 'react'
 import Head from 'next/head'
 import { Text, Button, Grid } from '@geist-ui/react'
 import { useAppContext } from '../lib/context'
-import { Moon, Sun, Github, ArrowRight } from '@geist-ui/react-icons'
+import { Moon, Sun, Github, ArrowRight, PlusCircle, Home } from '@geist-ui/react-icons'
 import Link from 'next/link'
-import { categoryNameToSlug } from '../lib/category'
+import { categoryNameToSlug } from '../lib/slugs'
 
 function Sidebar({ categories }) {
   const [ state, dispatch ] = useAppContext()
@@ -19,27 +19,34 @@ function Sidebar({ categories }) {
       <div className='header'>
         {/* <Text h1>😎</Text> */}
         <div className='button-grid'>
-          <Grid.Container gap={2} justify='center'>
-            <Grid><Button onClick={switchTheme} size='small' icon={<Moon />} auto type='abort' /></Grid>
+          <Grid.Container justify='center'>
+            <Grid><Link href='/'>
+              <Button size='small' icon={<Home />} auto type='abort' title='Home' />
+            </Link></Grid>
+            <Grid><Button onClick={switchTheme} size='small' icon={state.theme === 'light' ? <Moon /> : <Sun />} auto type='abort' title='Switch theme' /></Grid>
             <Grid><a href='https://github.com/scitronboy/awesomely-productive' target='_blank' rel='noopener noreferrer'>
-              <Button size='small' icon={<Github />} auto type='abort'/>
+              <Button size='small' icon={<Github />} auto type='abort' title='GitHub' />
             </a></Grid>
+            <Grid><Link href='/submissions'>
+              <Button size='small' icon={<PlusCircle />} auto type='abort' title='Submit a tool' />
+            </Link></Grid>
           </Grid.Container>
         </div>
         
         <Link href='/'><Text h4 size='1.15rem' style={{ textAlign: 'center', cursor: 'pointer' }}>Awesomely Productive</Text></Link>
+      </div>
 
-        <Link href='/submissions'>
-          <a className='submit-link'>Submit</a>
-        </Link>
+      <div className='nav'>
+        <Link href='/tag'><a>Tags</a></Link>
+        <Link href='/c'><a>Collections</a></Link>
       </div>
 
       { categories && <div className='categories'>
         { categories.map(category => (
           <Link href={`/${categoryNameToSlug(category.fields.name)}`} key={category.id}>
             <div className={`category`} >
-              <div className={!category.isSelected && `sliding-background category-color-${category.fields.color}`} />
-              <div className={`inner ${category.isSelected && 'category-text-' + category.fields.color}`}>
+              <div className={!category.isSelected && `sliding-background category-color-${category.fields.color || ''}`} />
+              <div className={`inner ${category.isSelected && 'category-text-' + category.fields.color || ''}`}>
                 <span>{category.fields.name}</span>
                 <span className='arrow-icon'><ArrowRight /></span>
               </div>
@@ -69,10 +76,14 @@ function Sidebar({ categories }) {
           margin-bottom: 10px;
         }
 
-        .submit-link {
-          float: right;
-          font-size: 0.9rem;
-          text-decoration: underline
+        .nav {
+          padding: 0 10px;
+          text-align: center;
+        }
+
+        .nav a {
+          white-space: nowrap;
+          margin: 3px;
         }
 
         .categories {
@@ -99,7 +110,7 @@ function Sidebar({ categories }) {
 
         .sliding-background {
           position: absolute;
-          width: 0;
+          width: 2px;
           top: 0;
           bottom: 0;
           z-index: -100;

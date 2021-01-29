@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
-import { getCategories } from './api/get-categories'
-import { categoryNameToSlug, categorySlugToName } from '../lib/category'
+import { getCategories } from '../lib/data'
+import { categoryNameToSlug, categorySlugToName } from '../lib/slugs'
 
 export default function Category({ categories }) {
   return (

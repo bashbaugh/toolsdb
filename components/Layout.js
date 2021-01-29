@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Sidebar from './Sidebar'
+import { Text } from '@geist-ui/react'
 
-export default function Layout({ title, children, categories }) {
+export default function Layout({ title, header, children, categories }) {
   return (
     <div>
       <Head>
@@ -15,6 +16,11 @@ export default function Layout({ title, children, categories }) {
         </div>
         <div className='page-container'>
           <div className='page'>
+            { header && (
+              <Text h2>
+                { header }
+              </Text>
+            )}
             <main>
               {children}
             </main>
@@ -33,8 +39,9 @@ export default function Layout({ title, children, categories }) {
 
         .page {
           display: block;
-          width: 80%;
-          margin: 20px auto;
+          width: 90%;
+          max-width: 1200px;
+          margin: 50px auto;
         }
 
         .sidebar {

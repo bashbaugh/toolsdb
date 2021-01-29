@@ -41,3 +41,10 @@
 .category-text-red {
   color: rgb(243, 4, 4);
 }
+
+.category-color-pink {
+  background: rgba(255, 0, 149, 0.774);
+}
+.category-text-pink {
+  color: rgba(255, 0, 157, 0.514);
+}
