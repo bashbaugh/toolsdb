@@ -1,4 +1,5 @@
 import Layout from '../components/Layout'
+import { getCategories } from './api/get-categories'
 
 export default function SubmissionForm() {
   return (
@@ -8,4 +9,11 @@ export default function SubmissionForm() {
       </div>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: { categories: await getCategories() },
+    revalidate: 1,
+  }
 }

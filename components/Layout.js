@@ -13,9 +13,13 @@ export default function Layout({ title, children, categories }) {
         <div className='sidebar'>
           <Sidebar categories={categories}/>
         </div>
-      <main>
-        {children}
-      </main>
+        <div className='page-container'>
+          <div className='page'>
+            <main>
+              {children}
+            </main>
+          </div>
+        </div>
       </div>
 
       <footer>
@@ -23,15 +27,17 @@ export default function Layout({ title, children, categories }) {
       </footer>
 
       <style jsx global>{`
-        .layout {
+        .page-container {
+          margin-left: 220px;
+        }
+
+        .page {
+          display: block;
+          width: 80%;
+          margin: 20px auto;
         }
 
         .sidebar {
-          height: 100vh;
-          width: 15%;
-          min-width: 200px;
-          max-width: 250px;
-          border-right: 2px solid gray;
         }
       `}</style>
     </div>

@@ -1,25 +1,23 @@
 import { GeistProvider, CssBaseline } from '@geist-ui/react'
 import { ContextWrapper, useAppContext } from '../lib/context'
+import Router from 'next/router'
+import NProgress from 'nprogress'
+import '../public/nprogress.css'
+
+
+Router.events.on('routeChangeStart', () => NProgress.start())
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 const themeLight = {
   "type": "light",
   "palette": {
-    "selection": "#c2f7b3"
-  },
-  "sidebar": {
-    "border": "1px solid gray"
+    "selection": "#c2f7b3",
+    "link": "#da1637"
   }
 }
 
-const themeDark = {
-  "type": "dark",
-  "palette": {
-    "selection": "#c2f7b3"
-  },
-  "sidebar": {
-    "border": "1px solid gray"
-  }
-}
+const themeDark = { "type": "dark" } 
 
 // We need two components so that context works
 
