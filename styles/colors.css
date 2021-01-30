@@ -48,3 +48,10 @@
 .category-text-pink {
   color: rgba(255, 0, 157, 0.514);
 }
+
+.category-color-brown {
+  background: rgba(156, 94, 35, 0.883);
+}
+.category-text-brown {
+  color: rgba(156, 93, 35, 0.685);
+}

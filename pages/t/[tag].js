@@ -24,6 +24,6 @@ export async function getStaticProps(ctx) {
 export async function getStaticPaths() {
   return {
     paths: (await getTags()).map(t => '/t/' + tagNameToSlug(t.fields.name)),
-    fallback: false
+    fallback: true
   }
 }

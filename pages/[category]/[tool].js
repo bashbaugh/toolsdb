@@ -68,6 +68,6 @@ export async function getStaticProps(ctx) {
 export async function getStaticPaths() {
   return {
     paths: (await getTools()).map(t => `/${categoryNameToSlug(t.fields.categoryName[0])}/${t.fields.slug}`),
-    fallback: false
+    fallback: true
   }
 }
