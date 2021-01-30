@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import Head from 'next/head'
-import { Text, Button, Grid } from '@geist-ui/react'
+import { Text, Button, Grid, useMediaQuery } from '@geist-ui/react'
 import { useAppContext } from '../lib/context'
 import { Moon, Sun, Github, ArrowRight, PlusCircle, Home } from '@geist-ui/react-icons'
 import Link from 'next/link'
@@ -8,6 +8,7 @@ import { categoryNameToSlug } from '../lib/slugs'
 
 function Sidebar({ categories }) {
   const [ state, dispatch ] = useAppContext()
+  const isSmallScreen = useMediaQuery('sm', { match: 'down' })
 
   const switchTheme = () => {
     dispatch({ type: 'switchTheme' })
@@ -37,8 +38,8 @@ function Sidebar({ categories }) {
       </div>
 
       <div className='nav'>
-        <Link href='/tag'><a>Tags</a></Link>
-        <Link href='/c'><a>Collections</a></Link>
+        <Link href='/t'><a>Tags</a></Link>
+        {/* <Link href='/c'><a>Collections</a></Link> */}
       </div>
 
       { categories && <div className='categories'>

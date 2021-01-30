@@ -5,7 +5,7 @@ import Tag from '../../components/Tag.js'
 export default function Tags({ tags, categories }) {
   return (
     <Layout categories={categories} header='Tags' title='tags'>  
-      { tags.map(t => (<Tag name={t.fields.name} color={t.fields.color} key={t.id} />)) }
+      <Tag.Group tags={tags} />
     </Layout>
   )
 }
