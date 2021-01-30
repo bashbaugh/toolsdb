@@ -27,7 +27,7 @@ function Sidebar({ categories, isSmallScreen }) {
                 <Button size='small' icon={<Home />} auto type='abort' title='Home' />
               </Link></Grid>
               <Grid><Button onClick={switchTheme} size='small' icon={state.theme === 'light' ? <Moon /> : <Sun />} auto type='abort' title='Switch theme' /></Grid>
-              <Grid><a href='https://github.com/scitronboy/awesomely-productive' target='_blank' rel='noopener noreferrer'>
+              <Grid><a href='https://github.com/scitronboy/awesomely-productive-tools' target='_blank' rel='noopener noreferrer'>
                 <Button size='small' icon={<Github />} auto type='abort' title='GitHub' />
               </a></Grid>
               <Grid><Link href='/submissions'>

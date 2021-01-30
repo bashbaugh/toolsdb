@@ -4,6 +4,9 @@ import { tagNameToSlug, tagSlugToName } from '../../lib/slugs'
 import ToolCard from '../../components/ToolCard'
 
 export default function Tag({ categories, tools, tagName }) {
+  
+  if (!tagName || !tools) return <Layout>Loading....</Layout>
+
   return (
     <Layout categories={categories} title={`${tagName} tag`} header={`Tools tagged ${tagName}`}>  
       <ToolCard.Group tools={tools} />

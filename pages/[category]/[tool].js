@@ -9,6 +9,9 @@ import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
 
 export default function Tool({ categories, tool }) {
+
+  if (!tool || !categories) return <Layout>Loading....</Layout>
+
   const prefilledEditLink = `https://airtable.com/shr4gfJmDYfmifsct?prefill_tool=${tool.id}`
 
   return (
@@ -21,7 +24,7 @@ export default function Tool({ categories, tool }) {
       <ReactMarkdown source={tool.fields.details} renderers={mdRenderers} />
       { !tool.fields.details && <Text small blockquote>This tool does not have a description. </Text>}
 
-      { tool.fields.images && <>
+      { tool.fields?.images?.length && <>
         <Text h3>Images</Text>
         { tool.fields.images.map(image => {
           const width = Math.min(1200, image.thumbnails.large.width)
