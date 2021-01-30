@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import mdRenderers from '../lib/mdRenderers'
 
 const homeContent = `
-The purpose of this site is to serve as a medium-sized collection of tools you can use to become more productive. Categories range from task management apps to writing extensions. To get started, choose a column on the left.
+The purpose of this site is to serve as a medium-sized collection of tools you can use to become more productive. Categories range from task management apps to writing extensions. To get started, choose a category from the menu on the left
 
 `
 

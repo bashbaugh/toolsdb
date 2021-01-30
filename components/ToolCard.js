@@ -1,20 +1,22 @@
 import Link from 'next/link'
-import { Card, Text, Spacer, Row, Col } from '@geist-ui/react'
+import { Card, Text, Spacer, Row, Col, useMediaQuery } from '@geist-ui/react'
 import { ExternalLink } from '@geist-ui/react-icons'
 import { categoryNameToSlug } from '../lib/slugs'
 import Tag from './Tag'
 
 export default function ToolCard({ tool }) {
+  const isSmallScreen = useMediaQuery('sm', { match: 'down' })
+
   return (<>
     <div className='tool'>
       <Card hoverable>
         <Row>
-          <Col span={3}>
+          <Col span={isSmallScreen ? 6 : 3}>
             <Link href={`/${categoryNameToSlug(tool.fields.categoryName[0])}/${tool.fields.slug}`}><a>
               <Text b>{ tool.fields.name }</Text>
             </a></Link>
           </Col>
-          <Col span={15}>
+          <Col span={isSmallScreen ? 12 : 15}>
             <Text small>{tool.fields.description}</Text>
           </Col>
           <Col span={5}>

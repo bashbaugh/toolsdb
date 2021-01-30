@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Sidebar from './Sidebar'
-import { Text, Button } from '@geist-ui/react'
+import { Text, Button, useMediaQuery } from '@geist-ui/react'
 import { ArrowLeftCircle } from '@geist-ui/react-icons'
 import { useRouter } from 'next/router'
 
 export default function Layout({ title, header, children, categories, backButton, aboveHeader, footer }) {
   const router = useRouter()
+  const isSmallScreen = useMediaQuery('sm', { match: 'down' })
 
   return (
     <div>
@@ -14,11 +15,11 @@ export default function Layout({ title, header, children, categories, backButton
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='layout'>
+      <div className={`layout ${isSmallScreen ? 'mobile' : 'default' }`}>
         <div className='sidebar'>
-          <Sidebar categories={categories}/>
+          <Sidebar categories={categories} isSmallScreen={isSmallScreen}/>
         </div>
-        <div className='page-container'>
+        <div className={`page-container`}>
           <div className='page'>
             { backButton && <Button onClick={_ => router.back()} icon={<ArrowLeftCircle />} auto size='small' style={{ marginBottom: '5px' }} />}
             { aboveHeader && <div style={{ margin: '5px 0' }}>
@@ -47,6 +48,10 @@ export default function Layout({ title, header, children, categories, backButton
           margin-left: 220px;
           min-height: 95vh;
           margin-bottom: -40px;
+        }
+
+        .layout.mobile .page-container {
+          margin-left: 0;
         }
 
         .page {
