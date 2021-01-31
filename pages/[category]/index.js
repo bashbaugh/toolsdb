@@ -1,22 +1,20 @@
 import Layout from '../../components/Layout'
 import { getCategories, getTools } from '../../lib/data'
 import { categoryNameToSlug, categorySlugToName } from '../../lib/slugs'
+import { Text } from '@geist-ui/react'
 import ToolCard from '../../components/ToolCard'
-import ReactMarkdown from 'react-markdown'
-import mdRenderers from '../../lib/mdRenderers'
 
 export default function Category({ categories, category, tools }) {
   if (!category) return <Layout>Loading....</Layout>
 
   return (
-    <Layout categories={categories} title={category.fields.name} header={category.fields.name}>  
-      <ReactMarkdown source={category.fields.description} renderers={mdRenderers} className='cat-desc'/>
+    <Layout categories={categories} title={category.fields.name} header={category.fields.name}>
+      <Text type='secondary'>
+        {category.fields.description}
+      </Text>
       <ToolCard.Group tools={tools} />
 
       <style jsx global>{`
-        .cat-desc p {
-          color: #363636;
-        }  
       `}</style>
     </Layout>
   )

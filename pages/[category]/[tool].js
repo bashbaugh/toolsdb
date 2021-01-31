@@ -22,7 +22,7 @@ export default function Tool({ categories, tool }) {
         <StyledLink icon block small href={tool.fields.url} target='_blank' rel='noopener noreferrer'>{tool.fields.url}</StyledLink>
       </Text>
       <ReactMarkdown source={tool.fields.details} renderers={mdRenderers} />
-      { !tool.fields.details && <Text small blockquote>This tool does not have a description. </Text>}
+      { !tool.fields.details && <Text p small type='secondary'>This tool does not have a description. </Text>}
 
       { tool.fields?.images?.length && <>
         <Text h3>Images</Text>

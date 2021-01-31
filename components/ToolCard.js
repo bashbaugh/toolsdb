@@ -12,15 +12,15 @@ export default function ToolCard({ tool }) {
     <div className='tool'>
       <Card hoverable>
         <Row>
-          <Col span={isSmallScreen ? 6 : 3}>
+          <Col span={isSmallScreen ? 7 : 3}>
             <Link href={`/${categoryNameToSlug(tool.fields.categoryName[0])}/${tool.fields.slug}`}><a>
-              <Text b>{ tool.fields.name }</Text>
+              <Text b style={{ fontSize: isSmallScreen ? '0.9rem' : null }}>{ tool.fields.name }</Text>
             </a></Link>
           </Col>
-          <Col span={isSmallScreen ? 11 : 15}>
+          <Col span={isSmallScreen ? 9 : 15}>
             <Text small>{tool.fields.description}</Text>
           </Col>
-          <Col span={isSmallScreen ? 6 : 5}>
+          <Col span={isSmallScreen ? 7 : 5}>
             <Tag.Group tagNames={tool.fields.tagNames} tagColors={tool.fields.tagColors} small />
           </Col>
           <Col span={1}>
