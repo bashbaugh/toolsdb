@@ -22,6 +22,10 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+
+          {/* Analytics */}
+          <script async defer src="https://tools-a.bweb.app/latest.js"></script>
+          <noscript><img src="https://tools-a.bweb.app/noscript.gif" alt=""/></noscript>
         </body>
       </Html>
     )

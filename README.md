@@ -2,7 +2,7 @@
 
 A small collection of very useful tools to help you stay productive.
 
-[Visit](https://tools.bweb.app)
+[View](https://tools.bweb.app)
 
 [Submit a tool](https://tools.bweb.app/submissions)
 

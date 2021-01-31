@@ -14,7 +14,10 @@ The purpose of this site is to serve as a medium-sized collection of tools, apps
 export default function Home({ categories }) {
   return (
     <Layout categories={categories} header='Awesomely Productive Tools' footer={
-      <Text type='secondary' small>Site built by <a href='https://benjaminashbaugh.me/' target='_blank'>Benjamin Ashbaugh</a> for <a href='https://hackclub.com/' target='_blank' rel='noopener'>Hack Club</a> and you</Text>
+      <Text type='secondary' small>
+        Site built by <a href='https://benjaminashbaugh.me/' target='_blank'>Benjamin Ashbaugh</a>
+        {/* for <a href='https://hackclub.com/' target='_blank' rel='noopener'>Hack Club</a> and you */}
+       </Text>
     }>  
       <ReactMarkdown source={homeContent} renderers={mdRenderers} />
 
