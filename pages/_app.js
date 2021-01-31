@@ -1,10 +1,10 @@
 import { GeistProvider, CssBaseline } from '@geist-ui/react'
 import { ContextWrapper, useAppContext } from '../lib/context'
+import { useRefreshAfterLoad } from '../lib/hooks'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import '../styles/nprogress.css'
 import '../styles/colors.css'
-
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
@@ -24,6 +24,7 @@ const themeDark = { "type": "dark" }
 
 function App({ props: { Component, pageProps } }) {
   const [ { theme }, dispatch ] = useAppContext()
+  // useRefreshAfterLoad() // To ensure data is up-to-date
   
   return (
     <GeistProvider theme={ theme === 'dark' ? themeDark : themeLight }>

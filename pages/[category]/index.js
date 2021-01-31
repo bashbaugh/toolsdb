@@ -6,7 +6,6 @@ import ReactMarkdown from 'react-markdown'
 import mdRenderers from '../../lib/mdRenderers'
 
 export default function Category({ categories, category, tools }) {
-
   if (!category) return <Layout>Loading....</Layout>
 
   return (
