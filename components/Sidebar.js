@@ -66,34 +66,35 @@ function Sidebar({ categories }) {
       </div>}
 
       <style jsx>{`
-        nav {
+        .sidebar {
           position: fixed;
           overflow-y: auto;
           top: 0;
           height: 100%;
         }
 
-        nav.fixed {
+        nav.fixed .sidebar {
           overflow-x: hidden;
           padding: 15px 0;
           width: 220px;
           border-right: 2px solid gray;
         }
 
-        nav.mobile {
+        nav.mobile .sidebar {
           padding: 5px 0;
           width: 0%;
-          z-index: 100000;
+          z-index: 1000;
           transition: 0.2s;
         }
 
-        nav.mobile.active {
+        nav.mobile.active .sidebar {
           width: 100%;
           background: ${state.theme === 'light' ? '#fff' : '#2e2e2e'};
           border-right: 2px solid gray;
         }
 
         .sidebar-control {
+          z-index: 100000;
           position: fixed;
           top: 0px;
           left: -5px;
@@ -102,7 +103,6 @@ function Sidebar({ categories }) {
 
         .active .sidebar-control {
           left: calc(100% - 60px);
-          //right: -5px;
         }
 
         .header {
