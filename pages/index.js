@@ -4,25 +4,20 @@ import { Text } from '@geist-ui/react'
 import ReactMarkdown from 'react-markdown'
 import mdRenderers from '../lib/mdRenderers'
 import Link from 'next/link'
-
-const homeContent = `
-**Tools to help you do everything more efficiently.**
-
-The purpose of this site is to serve as a medium-sized collection of tools, apps and software you can use to become more productive. Categories range from task management apps to writing extensions. To get started, choose a category from the menu on the left.
-`
+import homeContent from '../content/home.md'
 
 export default function Home({ categories }) {
   return (
     <Layout categories={categories} header='Awesomely Productive Tools' footer={
       <Text type='secondary' small>
-        Site built by <a href='https://benjaminashbaugh.me/' target='_blank'>Benjamin Ashbaugh</a>
+        Site built by <a href='https://benjaminashbaugh.me/' target='_blank'>Benjamin Ashbaugh</a> - 
+        <Link href='/apidoc'><a> API</a></Link>
         {/* for <a href='https://hackclub.com/' target='_blank' rel='noopener'>Hack Club</a> and you */}
        </Text>
     }>  
       <ReactMarkdown source={homeContent} renderers={mdRenderers} />
 
       <Link href='/submissions'>Have a tool to add? Click here.</Link>
-
 
     </Layout>
   )
