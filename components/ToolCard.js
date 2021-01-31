@@ -1,11 +1,12 @@
 import Link from 'next/link'
-import { Card, Text, Spacer, Row, Col, useMediaQuery } from '@geist-ui/react'
+import { Card, Text, Spacer, Row, Col } from '@geist-ui/react'
 import { ExternalLink } from '@geist-ui/react-icons'
 import { categoryNameToSlug } from '../lib/slugs'
 import Tag from './Tag'
+import { useIsSmallScreen } from '../lib/hooks'
 
 export default function ToolCard({ tool }) {
-  const isSmallScreen = useMediaQuery('sm', { match: 'down' })
+  const isSmallScreen = useIsSmallScreen()
 
   return (<>
     <div className='tool'>

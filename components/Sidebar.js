@@ -4,11 +4,13 @@ import { Text, Button, Grid } from '@geist-ui/react'
 import { useAppContext } from '../lib/context'
 import { Moon, Sun, Github, ArrowRight, PlusCircle, Home, Menu, X } from '@geist-ui/react-icons'
 import Link from 'next/link'
+import { useIsSmallScreen } from '../lib/hooks'
 import { categoryNameToSlug } from '../lib/slugs'
 
-function Sidebar({ categories, isSmallScreen }) {
+function Sidebar({ categories }) {
   const [ state, dispatch ] = useAppContext()
   const [ sidebarOpen, setSidebarOpen ] = useState(false)
+  const isSmallScreen = useIsSmallScreen()
 
   const switchTheme = () => {
     dispatch({ type: 'switchTheme' })

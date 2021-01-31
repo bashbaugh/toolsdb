@@ -35,7 +35,7 @@ export default function Tool({ categories, tool }) {
               src={image.thumbnails.large.url}
               width={width}
               height={height}
-              quality={80}
+              quality={90}
             />
           </Display>)
         })}
@@ -55,6 +55,8 @@ export default function Tool({ categories, tool }) {
 export async function getStaticProps(ctx) {
   const toolSlug = ctx.params.tool
   const tool = await getTool(toolSlug)
+
+  if (!tool) return { notFound: true }
 
   const categories = await getCategories()
 

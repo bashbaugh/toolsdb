@@ -26,6 +26,8 @@ export async function getStaticProps(ctx) {
     }
   })
 
+  if (!category) return { notFound: true }
+
   const tools = await getTools().then(t => t.filter(t => category?.fields?.tools?.includes(t.id)))
 
   return {

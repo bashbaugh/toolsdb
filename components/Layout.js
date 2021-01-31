@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import Sidebar from './Sidebar'
-import { Text, Button, useMediaQuery } from '@geist-ui/react'
+import { Text, Button } from '@geist-ui/react'
 import { ArrowLeftCircle } from '@geist-ui/react-icons'
 import { useRouter } from 'next/router'
+import { useIsSmallScreen } from '../lib/hooks'
 
 export default function Layout({ title, header, children, categories, backButton, aboveHeader, footer }) {
   const router = useRouter()
-  const isSmallScreen = useMediaQuery('sm', { match: 'down' })
+  const isSmallScreen = useIsSmallScreen()
 
   return (
     <div>
@@ -17,7 +18,7 @@ export default function Layout({ title, header, children, categories, backButton
 
       <div className={`layout ${isSmallScreen ? 'mobile' : 'default' }`}>
         <div className='sidebar'>
-          <Sidebar categories={categories} isSmallScreen={isSmallScreen}/>
+          <Sidebar categories={categories}/>
         </div>
         <div className={`page-container`}>
           <div className='page'>
@@ -25,11 +26,12 @@ export default function Layout({ title, header, children, categories, backButton
             { aboveHeader && <div style={{ margin: '5px 0' }}>
               { aboveHeader }
             </div>}
-            { header && (
+            { typeof header === 'string' && (
               <Text h2>
                 { header }
               </Text>
             )}
+            { typeof header !== 'string' && header }
             <main>
               {children}
             </main> 
@@ -45,9 +47,12 @@ export default function Layout({ title, header, children, categories, backButton
 
       <style jsx global>{`
         .page-container {
-          margin-left: 220px;
           min-height: 95vh;
           margin-bottom: -40px;
+        }
+
+        .layout.default .page-container {
+          margin-left: 220px;
         }
 
         .layout.mobile .page-container {
