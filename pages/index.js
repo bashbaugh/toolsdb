@@ -3,10 +3,12 @@ import { getCategories } from '../lib/data'
 import { Text } from '@geist-ui/react'
 import ReactMarkdown from 'react-markdown'
 import mdRenderers from '../lib/mdRenderers'
+import Link from 'next/link'
 
 const homeContent = `
-The purpose of this site is to serve as a medium-sized collection of tools you can use to become more productive. Categories range from task management apps to writing extensions. To get started, choose a category from the menu on the left.
+**Tools to help you do everything more efficiently.**
 
+The purpose of this site is to serve as a medium-sized collection of tools, apps and software you can use to become more productive. Categories range from task management apps to writing extensions. To get started, choose a category from the menu on the left.
 `
 
 export default function Home({ categories }) {
@@ -15,6 +17,8 @@ export default function Home({ categories }) {
       <Text type='secondary' small>Site built by <a href='https://benjaminashbaugh.me/' target='_blank'>Benjamin Ashbaugh</a> for <a href='https://hackclub.com/' target='_blank' rel='noopener'>Hack Club</a> and you</Text>
     }>  
       <ReactMarkdown source={homeContent} renderers={mdRenderers} />
+
+      <Link href='/submissions'>Have a tool to add? Click here.</Link>
 
 
     </Layout>

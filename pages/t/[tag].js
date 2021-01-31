@@ -19,7 +19,6 @@ export default function Tag({ categories, tools, tagName, tagColor }) {
 
 export async function getStaticProps(ctx) {
   const tagName = tagSlugToName(ctx.params.tag)
-  console.log(tagName)
   const tagColor = (await getTag(tagName))?.fields?.color
 
   if (!tagColor) return { notFound: true }

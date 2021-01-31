@@ -17,10 +17,10 @@ export default function ToolCard({ tool }) {
               <Text b>{ tool.fields.name }</Text>
             </a></Link>
           </Col>
-          <Col span={isSmallScreen ? 12 : 15}>
+          <Col span={isSmallScreen ? 11 : 15}>
             <Text small>{tool.fields.description}</Text>
           </Col>
-          <Col span={5}>
+          <Col span={isSmallScreen ? 6 : 5}>
             <Tag.Group tagNames={tool.fields.tagNames} tagColors={tool.fields.tagColors} small />
           </Col>
           <Col span={1}>

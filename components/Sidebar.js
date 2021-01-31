@@ -49,7 +49,7 @@ function Sidebar({ categories }) {
         { categories && <div className='categories'>
           { categories.map(category => (
             <Link href={`/${categoryNameToSlug(category.fields.name)}`} key={category.id}>
-              <div className={`category`} >
+              <div className={`category`} title={category.fields.description}>
                 <div className={!category.isSelected && `sliding-background category-color-${category.fields.color || ''}`} />
                 <div className={`inner ${category.isSelected && 'category-text-' + category.fields.color || ''}`}>
                   <span>{category.fields.name}</span>
