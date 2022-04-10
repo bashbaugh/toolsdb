@@ -12,7 +12,7 @@ export default function Layout({ title, header, children, categories, backButton
   return (
     <div>
       <Head>
-        <title>{ title && (title + ' - ') }Awesomely Productive Tools</title>
+        <title>{ title && (title + ' - ') }Tools // Benjamin Ashbaugh</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
