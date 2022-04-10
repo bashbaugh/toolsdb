@@ -42,9 +42,9 @@ export default function Tool({ categories, tool }) {
       </>}
       
       <Spacer y={8} />
-      <a href={prefilledEditLink} target='_blank' rel='noopener noreferrer'>
+      {/* <a href={prefilledEditLink} target='_blank' rel='noopener noreferrer'>
         <Button icon={<Edit3 />} auto type='abort' size='small'>Submit revision</Button>
-      </a>
+      </a> */}
 
       <style jsx>{`
       `}</style>
@@ -72,7 +72,7 @@ export async function getStaticProps(ctx) {
 
 export async function getStaticPaths() {
   return {
-    paths: (await getTools()).map(t => `/${categoryNameToSlug(t.fields.categoryName[0])}/${t.fields.slug}`),
+    paths: (await getTools()).filter(t => t.fields.categoryName).map(t => `/${categoryNameToSlug(t.fields.categoryName[0])}/${t.fields.slug}`),
     fallback: true
   }
 }

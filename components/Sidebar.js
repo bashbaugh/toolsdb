@@ -26,19 +26,19 @@ function Sidebar({ categories }) {
           <div className='button-grid'>
             <Grid.Container justify='center'>
               <Grid><Link href='/'>
-                <Button size='small' icon={<Home />} auto type='abort' title='Home' />
+                <Button scale={2/3} icon={<Home />} auto type='abort' title='Home' />
               </Link></Grid>
-              <Grid><Button onClick={switchTheme} size='small' icon={state.theme === 'light' ? <Moon /> : <Sun />} auto type='abort' title='Switch theme' /></Grid>
+              <Grid><Button onClick={switchTheme} scale={2/3} icon={state.theme === 'light' ? <Moon /> : <Sun />} auto type='abort' title='Switch theme' /></Grid>
               <Grid><a href='https://github.com/scitronboy/awesomely-productive-tools' target='_blank' rel='noopener noreferrer'>
-                <Button size='small' icon={<Github />} auto type='abort' title='GitHub' />
+                <Button scale={2/3} icon={<Github />} auto type='abort' title='GitHub' />
               </a></Grid>
-              <Grid><Link href='/submissions'>
-                <Button size='small' icon={<PlusCircle />} auto type='abort' title='Submit a tool' />
-              </Link></Grid>
+              {/* <Grid><Link href='/submissions'>
+                <Button scale={2/3} icon={<PlusCircle />} auto type='abort' title='Submit a tool' />
+              </Link></Grid> */}
             </Grid.Container>
           </div>
           
-          <Link href='/'><Text h4 size='1.15rem' style={{ textAlign: 'center', cursor: 'pointer' }}>Awesomely Productive</Text></Link>
+          <Link href='https://benjaminashbaugh.me'><Text h4 font='1.15rem' style={{ textAlign: 'center', cursor: 'pointer' }}>Benjamin Ashbaugh</Text></Link>
         </div>
 
         <div className='nav-links'>

@@ -8,7 +8,7 @@ import homeContent from '../content/home.md'
 
 export default function Home({ categories }) {
   return (
-    <Layout categories={categories} header='Awesomely Productive Tools' footer={
+    <Layout categories={categories} header="My Tool Database" footer={
       <Text type='secondary' small>
         Site built by <a href='https://benjaminashbaugh.me/' target='_blank'>Benjamin Ashbaugh</a> - 
         <Link href='/apidoc'><a> API</a></Link>
@@ -17,7 +17,7 @@ export default function Home({ categories }) {
     }>  
       <ReactMarkdown source={homeContent} renderers={mdRenderers} />
 
-      <Link href='/submissions'>Have a tool to add? Click here.</Link>
+      {/* <Link href='https://benjaminashbaugh.me'>My Website</Link> */}
 
     </Layout>
   )
