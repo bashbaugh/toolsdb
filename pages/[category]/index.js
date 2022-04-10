@@ -5,7 +5,7 @@ import { Text } from '@geist-ui/react'
 import ToolCard from '../../components/ToolCard'
 
 export default function Category({ categories, category, tools }) {
-  // if (!category) return <Layout>Loading....</Layout>
+  if (!category) return <Layout>Loading....</Layout>
 
   return (
     <Layout categories={categories} title={category.fields.name} header={category.fields.name}>

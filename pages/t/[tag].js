@@ -23,7 +23,7 @@ export async function getStaticProps(ctx) {
 
   if (!tagColor) return { notFound: true }
 
-  const tools = await getTools().then(t => t.filter(t => t.fields.tagNames.includes(tagName)))
+  const tools = await getTools().then(t => t.filter(t => t.fields.categoryName && t.fields.tagNames.includes(tagName)))
 
   return {
     props: { categories: await getCategories(), tools, tagName, tagColor },
